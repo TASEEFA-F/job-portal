@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<h1>All Available Jobs</h1>
+<% if(jobs.length > 0) { jobs.forEach(function(job) { %>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title"><%= job.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= job.company %> - <%= job.location %></h6>
+            <p class="card-text"><%- job.description.replace(/\n/g, '<br>') %></p>
+        </div>
+    </div>
+<% }); } else { %><p>No jobs available at the moment.</p><% } %>
+<%- include('partials/footer') %>

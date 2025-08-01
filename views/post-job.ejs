@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<h1>Post a New Job</h1>
+<% if(typeof errors != 'undefined' && errors.length > 0) { errors.forEach(function(error) { %>
+    <div class="alert alert-warning" role="alert"><%= error.msg %></div>
+<% }); } %>
+<form action="/jobs/post" method="POST">
+    <div class="mb-3"><label for="title" class="form-label">Job Title</label><input type="text" name="title" class="form-control" required></div>
+    <div class="mb-3"><label for="company" class="form-label">Company Name</label><input type="text" name="company" class="form-control" required></div>
+    <div class="mb-3"><label for="location" class="form-label">Location</label><input type="text" name="location" class="form-control" required></div>
+    <div class="mb-3"><label for="description" class="form-label">Job Description</label><textarea name="description" class="form-control" rows="5" required></textarea></div>
+    <button type="submit" class="btn btn-primary">Post Job</button>
+</form>
+<%- include('partials/footer') %>
